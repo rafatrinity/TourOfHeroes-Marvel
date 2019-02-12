@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+	production: false,
+	apiUrl: 'http://gateway.marvel.com/v1/public/',
+	apiKey: '74980acd1fc05c9b9f9316de92dc33b7',
+	settings: {
+		appErrorPrefix: '[Angular Heroes Error] ',
+		appTitle: 'Angular Heroes',
+		version: '1.0.0'
+	}
 };
 
 /*
@@ -13,4 +20,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+ // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
