@@ -1,6 +1,7 @@
+import { toastr } from 'toastr';
 export const environment = {
-	production: false,
-	apiUrl: 'https://gateway.marvel.com/v1/public/',
+	production: true,
+	apiUrl: 'https://gateway.marvel.com/v1/public/characters',
 	apiKey: '74980acd1fc05c9b9f9316de92dc33b7',
 	settings: {
 		appErrorPrefix: '[Angular Heroes Error] ',
@@ -9,3 +10,4 @@ export const environment = {
 	}
 };
 
+toastr.options.timeOut = 1500;
