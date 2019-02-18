@@ -1,25 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { PersonagensService } from './personagens/personagens.service'
-import { Personagem } from './personagens/personagem';
+import { PersonagensService } from './personagem.service';
+import { Personagem } from './personagem';
+
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css']
 })
-export class AppComponent {
 
-	title = 'TourOfHeroes-Marvel';
+export class AppComponent implements OnInit {
 	Personagem: Personagem[];
-	constructor(private personagensService: PersonagensService) { }
+	constructor(private PersonagensService: PersonagensService) { }
 
 	ngOnInit() {
 		this.getPersonagens();
 	}
-
 	getPersonagens(): void {
-		this.personagensService.getPersonagens()
+		this.PersonagensService.getPersonagens()
 		.subscribe(ok => {
-			this.Personagem=ok;
+			this.Personagem = ok;
 			console.log(ok);
 		},
 		error => {
@@ -27,4 +26,4 @@ export class AppComponent {
 		}
 		);
 	}
-}
+}	
