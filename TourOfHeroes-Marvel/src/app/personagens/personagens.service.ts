@@ -10,17 +10,16 @@ import { environment } from '../../environments/environment';
 })
 export class PersonagensService {
 	private handleError: HandleError;
+	BaseUrl : string = environment.apiUrl;
 
 	constructor(
-		private http: HttpClient,
+		private httpC: HttpClient,
 		httpErrorHandler: HttpErrorHandler) {
 		this.handleError = httpErrorHandler.createHandleError('PersonagensService');
 	}
 	
-	getPersonagens (): Observable<Personagem[]> {
-		return this.http.get<Personagem[]>(environment.apiUrl)
-		.pipe(
-			catchError(this.handleError('getPersonagens', []))
-			);
+	getPersonagens(): Observable<Personagem[]>{
+		return this.httpC.get<Personagem[]>(`${this.BaseUrl}`);
 	}
 }
+

@@ -4,7 +4,7 @@ import { Personagem } from './personagem';
 
 @Component({
 	//selector: 'app-heroes',
-	//templateUrl: './heroes.component.html',
+	templateUrl: './personagem.html',
 	providers: [ PersonagensService ],
 	//styleUrls: ['./heroes.component.css']
 })
@@ -19,7 +19,13 @@ export class PersonagensComponent implements OnInit {
 
 	getPersonagens(): void {
 		this.personagensService.getPersonagens()
-		.subscribe(personagens => this.Personagem = personagens);
-		console.log(this.Personagem);
+		.subscribe(ok => {
+			this.Personagem = ok;
+			console.log(ok);
+		},
+		error => {
+			console.error('deu merda '+error);
+		}
+		);
 	}
-}
+}	
