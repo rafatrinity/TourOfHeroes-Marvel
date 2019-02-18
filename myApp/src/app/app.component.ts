@@ -9,21 +9,24 @@ import { Personagem } from './personagem';
 })
 
 export class AppComponent implements OnInit {
-	Personagem: Personagem[];
-	constructor(private PersonagensService: PersonagensService) { }
+	title = 'Heróis Marvel';
+	public Personagem: any[];
+	public hero : any[];
+	constructor(private PersonagensService: PersonagensService, hero) { }
 
 	ngOnInit() {
-		this.getPersonagens();
+		this.getPersonagens();	
 	}
+
 	getPersonagens(): void {
 		this.PersonagensService.getPersonagens()
 		.subscribe(ok => {
 			this.Personagem = ok;
-			console.log(ok);
 		},
 		error => {
 			console.error('deu merda '+error);
 		}
 		);
 	}
+	
 }	
