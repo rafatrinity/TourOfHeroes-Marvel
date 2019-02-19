@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.card{
+	background-color: #212529;
+}
+.card-title{
+	color: whitesmoke;
+	text-align: center;
+}

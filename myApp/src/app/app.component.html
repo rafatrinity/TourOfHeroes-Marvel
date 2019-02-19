@@ -1,16 +1,44 @@
-<!--
-<div class="container-fluid" *ngfor="let data of Personagem">
-  <div *ngfor="let hero of results">
-    <div *ngFor="let item of charactes">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{item.name}}</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Time A</a>
-          <a href="#" class="btn btn-primary">Time B</a>
+
+<div class="album py-5 bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let hero of Personagem.data.results">
+        <div class="card mb-2 shadow-sm">
+          <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src={{hero.thumbnail.path}}.{{hero.thumbnail.extension}} data-holder-rendered="true">
+          <div class="card-body">
+            <h5 class="card-title">{{hero.name | truncate: 16 }}</h5>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-success" (click)="addTimeA(hero)"  >TIME A</button>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-warning" (click)="addTimeB(hero)">TIME B</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!--
+<div class="album py-5 bg-light">
+  <div class="container-fluid" class="card" *ngFor="let hero of Personagem.data.results" style="width: 18rem;">
+    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{hero.name}}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Time A</a>
+      <a href="#" class="btn btn-primary">Time B</a>
     </div>
   </div>
 </div>
