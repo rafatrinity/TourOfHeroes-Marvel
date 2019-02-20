@@ -20,8 +20,10 @@ export class AppComponent implements OnInit {
 	public Personagem: Personagem[];
 	timeA: any[];
 	timeB: any[];
+	timeV: any[];
 	aok: boolean;
 	bok: boolean;
+	vencedor: boolean;
 	somaA: Number;
 	somaB: Number;
 
@@ -37,8 +39,10 @@ export class AppComponent implements OnInit {
 	getPersonagens(): void {
 		this.timeA=[];
 		this.timeB=[];
+		this.timeV=[];
 		this.aok=false;
 		this.bok=false;
+		this.vencedor=false;
 		this.PersonagensService.getPersonagens()
 		.subscribe(ok => {
 			this.Personagem = ok;
@@ -110,14 +114,19 @@ export class AppComponent implements OnInit {
 				this.somaB+=hero.comics.available;
 			}
 			if(this.somaA>this.somaB){
+				this.timeV=this.timeA;
 				this.alertService.success('Vitoria do Time A!', window.location.hash = String(this.somaA));
 			}
 			else if(this.somaA<this.somaB){
+				this.timeV=this.timeB;
 				this.alertService.success('Vitoria do Time B!',window.location.hash = String(this.somaB));
 			}
 			else{
+				this.timeV=this.timeA;
+				this.timeV=this.timeB;
 				this.alertService.warning('Empate!','');
 			}
+			this.vencedor=true;
 		}
 	}
 }	

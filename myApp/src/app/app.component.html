@@ -1,5 +1,5 @@
 
-<div class="album py-5 bg-dark">
+<div class="album py-5 bg-dark" *ngIf="vencedor == false ; else elseBlock">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-3" *ngFor="let hero of Personagem.data.results">
@@ -21,3 +21,24 @@
     </div>
   </div>
 </div>
+<ng-template #elseBlock>
+  <div class="album py-5 bg-dark">
+    <div class="container">
+     <div class="row">
+      <div class="col-lg-4" *ngFor="let hero of timeV">
+        <img src="{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}" class="rounded-circle" width="140" height="140">
+        <h2>{{hero.name}}</h2>
+        <p>{{hero.description}}</p>
+        <p><a class="btn btn-secondary" href={{hero.urls[0].url}} role="button">Mais Detalhes »</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</ng-template>
+<footer class="album py-5 bg-dark">
+  <div class="container-fluid p-3 p-md-5">
+    <ul class="bd-footer-links">
+      <li><a href="https://github.com/rafatrinity">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
