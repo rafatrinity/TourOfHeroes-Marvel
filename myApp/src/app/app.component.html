@@ -1,6 +1,6 @@
 
 <div class="album py-5 bg-dark">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-3" *ngFor="let hero of Personagem.data.results">
         <div class="card mb-2 shadow-sm">
@@ -9,10 +9,10 @@
             <h5 class="card-title">{{hero.name | truncate: 16 }}</h5>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-success" (click)="addTimeA(hero)"  >TIME A</button>
+                <button type="button" class="btn btn-sm btn-outline-success" (click)="addTimeA(hero)">TIME A ({{timeA.length}})</button>
               </div>
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-warning" (click)="addTimeB(hero)">TIME B</button>
+                <button type="button" class="btn btn-sm btn-outline-warning" (click)="addTimeB(hero)">TIME B ({{timeB.length}})</button>
               </div>
             </div>
           </div>
@@ -21,25 +21,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-<!--
-<div class="album py-5 bg-light">
-  <div class="container-fluid" class="card" *ngFor="let hero of Personagem.data.results" style="width: 18rem;">
-    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">{{hero.name}}</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Time A</a>
-      <a href="#" class="btn btn-primary">Time B</a>
-    </div>
-  </div>
-</div>
--->

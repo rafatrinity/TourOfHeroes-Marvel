@@ -4,30 +4,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { ModalModule } from 'ngx-bootstrap';
+import { AlertService } from './alert.service';
+import { TruncatePipe } from './truncate.pipe';
 
-@Pipe({
-	name: 'truncate'
-})
-export class TruncatePipe implements PipeTransform {
-
-	transform(value: string, args: string[]): string {
-		const limit = args.length > 0 ? parseInt(args[0], 10) : 20;
-		const trail = args.length > 1 ? args[1] : '...';
-		return value.length > limit ? value.substring(0, limit) + trail : value;
-	}
-}
 
 @NgModule({
 	declarations: [
+	TruncatePipe,
 	AppComponent,
 	TruncatePipe
 	],
 	imports: [
+	ModalModule.forRoot(),
 	HttpClientModule,
 	BrowserModule,
 	AppRoutingModule
 	],
-	providers: [],
+	providers: [AlertService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -11,5 +11,13 @@ export interface Personagem{
 export interface data{
 	count: number,
 	limit: number,
-	results: Array<any>;
+	results: Array<heroi>;
+}
+
+export interface heroi{
+	id: number,
+	name: string,
+	description: string,
+	modified: Date,
+	thumbnail: any
 }
