@@ -68,7 +68,7 @@
     "webpack-dev-middleware": "^3.6.0"
 },
 "engines" : {
-    "node": "~8.9.1",
-    "npm": "~6.0.0"
+    "node": "~11.8.0",
+    "npm": "~6.8.0"
 }
 }
