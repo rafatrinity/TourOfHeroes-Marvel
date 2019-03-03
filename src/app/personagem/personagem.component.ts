@@ -1,3 +1,4 @@
+import {PersonagemModule} from './personagem.module'
 import { Component, OnInit, Pipe, PipeTransform, TemplateRef } from '@angular/core';
 import { PersonagemService } from '../services/personagem.service';
 import { map } from 'rxjs/operators';
@@ -8,7 +9,7 @@ import { Personagem } from './personagem'
   selector: 'personagem',
   templateUrl: './personagem.component.html',
   styleUrls: ['./personagem.component.css'],
-  providers: [PersonagemService]
+  providers: [PersonagemService,PersonagemModule]
 })
 export class PersonagemComponent implements OnInit {
   imgUrl = "https://cdn.iconscout.com/icon/free/png-128/ironman-marvel-super-hero-earth-saver-avenger-28699.png"

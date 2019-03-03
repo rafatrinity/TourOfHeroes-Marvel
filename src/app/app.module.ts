@@ -1,4 +1,4 @@
-
+import {PersonagemModule} from './personagem/personagem.module'
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,9 +12,9 @@ import { CardComponent } from './componentes/card/card.component';
 import { MyNavComponent } from './componentes/my-nav/my-nav.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule ],
-  declarations: [ AppComponent, PersonagemComponent, CardComponent, MyNavComponent ],
-  bootstrap:    [ AppComponent ],
-  providers: [PersonagemService]
+	imports:      [ BrowserModule, FormsModule, HttpClientModule, PersonagemModule ],
+	declarations: [ AppComponent, PersonagemComponent, CardComponent, MyNavComponent ],
+	bootstrap:    [ AppComponent ],
+	providers: [PersonagemService, PersonagemModule]
 })
 export class AppModule { }
