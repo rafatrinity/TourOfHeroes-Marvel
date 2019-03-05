@@ -9,7 +9,10 @@ const app = express();
 app.use(express.static(__dirname + '/dist/marvel-heroes123'));
 
 // Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+	console.log(`Our app is running on port ${ PORT }`);
+});
 
 app.get('/*', function(req,res) {
   // Replace the '/dist/marvel-heroes123/index.html'
