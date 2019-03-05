@@ -14,7 +14,7 @@ app.listen(PORT, () => {
 	console.log(`Our app is running on port ${ PORT }`);
 });
 
-app.get('/*', function(req,res) {
+app.get('*', function(req,res) {
   // Replace the '/dist/marvel-heroes123/index.html'
   res.sendFile(path.join(__dirname + '/dist/marvel-heroes123/index.html'));
 });
